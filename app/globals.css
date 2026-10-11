@@ -355,6 +355,18 @@
   }
 }
 
+.footer-stage .footer-hero-copy {
+  right: 0;
+  left: 0;
+  width: auto;
+}
+
+.footer-stage .footer-racer {
+  right: 0;
+  left: 0;
+  margin-inline: auto;
+}
+
 :root { --cobalt: #0047ab; --lime: #32cd32; --gold: #ffd700; --ink: #06102d; --muted: #a7b7d7; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }

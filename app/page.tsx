@@ -237,7 +237,11 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="social-card-stack" aria-label={activeCopy.socialFollow}>
+          <div
+            className="social-card-stack"
+            aria-label={activeCopy.socialFollow}
+            onMouseLeave={() => setActiveSocial(2)}
+          >
             {socialCards.map((card, index) => (
               <motion.a
                 key={`${card.platform}-${index}`}
