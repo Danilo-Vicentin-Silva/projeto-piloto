@@ -1,0 +1,2055 @@
+.page {
+  --track-paper: #f3f1e9;
+  --track-panel: #fff;
+  --track-line: rgba(6, 16, 45, 0.14);
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--track-paper);
+  color: var(--ink);
+}
+
+.header {
+  padding: 18px 42px !important;
+  background: rgba(6, 16, 45, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 42px);
+}
+
+.activeNav {
+  color: var(--lime);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.activeNav span {
+  margin-left: 8px;
+  color: var(--lime);
+}
+
+.menuButton {
+  display: none;
+}
+
+.mobileNav {
+  display: none;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 154px 42px 0;
+  background:
+    radial-gradient(ellipse at 70% 39%, rgba(0, 71, 171, 0.82), transparent 47%),
+    linear-gradient(120deg, var(--ink) 0%, var(--ink) 61%, var(--cobalt) 150%);
+  color: #fff;
+}
+
+.hero::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 38%, rgba(255, 215, 0, 0.1) 38.1%, rgba(255, 215, 0, 0.1) 38.25%, transparent 38.35%, transparent 68%, rgba(50, 205, 50, 0.1) 68.1%, rgba(50, 205, 50, 0.1) 68.25%, transparent 68.35%);
+  content: "";
+  pointer-events: none;
+}
+
+.heroBlueprint {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.85) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(90deg, transparent 8%, #000 55%, transparent);
+}
+
+.heroDisplay {
+  position: absolute;
+  z-index: 0;
+  top: 14%;
+  right: -4%;
+  color: rgba(255, 255, 255, 0.035);
+  font-size: clamp(150px, 27vw, 390px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.13em;
+  line-height: 0.8;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.heroInner,
+.container {
+  width: min(100%, 1280px);
+  margin-inline: auto;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 620px;
+  grid-template-columns: 0.82fr 1.18fr;
+  align-items: center;
+  gap: clamp(30px, 5vw, 82px);
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 38px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  color: var(--cobalt);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.17em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.eyebrow > span {
+  color: var(--lime);
+}
+
+.hero .eyebrow {
+  color: var(--lime);
+}
+
+.hero .eyebrow > span {
+  color: var(--gold);
+}
+
+.hero h1 {
+  margin: 28px 0 22px -7px;
+  font-size: clamp(92px, 13vw, 178px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.11em;
+  line-height: 0.72;
+  text-transform: uppercase;
+}
+
+.heroWordMask {
+  display: block;
+  overflow: hidden;
+  padding: 0.06em 0.1em 0.1em 0;
+}
+
+.heroWord {
+  display: block;
+}
+
+.heroWordAccent {
+  color: var(--gold);
+}
+
+.heroLead {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.bioTags {
+  display: flex;
+  max-width: 490px;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 26px;
+}
+
+.bioTags > span {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 0 10px;
+  color: rgba(255, 255, 255, 0.86);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.bioTags > span i {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.bioTags .tagline {
+  border-color: var(--lime);
+  background: rgba(50, 205, 50, 0.1);
+  color: var(--lime);
+}
+
+.scrollLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 34px;
+  color: var(--gold);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  transition: gap 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scrollLink:hover {
+  gap: 16px;
+}
+
+.heroVisual {
+  position: relative;
+  min-height: 460px;
+  align-self: stretch;
+  overflow: hidden;
+  margin-block: 35px 52px;
+  border-radius: 8px;
+  background: var(--cobalt);
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.28);
+}
+
+.heroVisual > img,
+.heroImageWash {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heroVisual > img {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.08) contrast(1.06);
+}
+
+.heroImageWash {
+  background: linear-gradient(90deg, rgba(6, 16, 45, 0.42), transparent 75%), linear-gradient(0deg, rgba(6, 16, 45, 0.58), transparent 48%);
+}
+
+.imageCoordinates,
+.imageFrameLabel,
+.imageIndex {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.imageCoordinates {
+  top: 18px;
+  left: 20px;
+}
+
+.imageFrameLabel {
+  top: 18px;
+  right: 20px;
+  color: var(--lime);
+}
+
+.imageIndex {
+  right: 20px;
+  bottom: 20px;
+}
+
+.imageIndex span {
+  color: var(--gold);
+}
+
+.signature {
+  position: absolute;
+  right: 10%;
+  bottom: 8%;
+  width: min(34%, 230px);
+  color: var(--lime);
+  filter: drop-shadow(0 4px 18px rgba(50, 205, 50, 0.3));
+  transform: rotate(-8deg);
+}
+
+.raceStatus {
+  display: grid;
+  width: min(100%, 1280px);
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.previousRace,
+.nextRace {
+  min-height: 132px;
+  padding: 21px 28px 22px 0;
+}
+
+.previousRace {
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.nextRace {
+  padding-left: 28px;
+  background: linear-gradient(90deg, rgba(50, 205, 50, 0.1), transparent 90%);
+}
+
+.statusLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.54);
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.statusLabel i,
+.pill i,
+.liveLabel i,
+.countdownLabel i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 12px rgba(50, 205, 50, 0.6);
+}
+
+.previousRace > p {
+  margin: 10px 0 0;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.previousRace > p span {
+  color: var(--gold);
+}
+
+.previousRace > strong {
+  color: var(--lime);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.previousRace > strong small {
+  margin-left: 8px;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+}
+
+.nextRace > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 9px;
+  color: var(--lime);
+}
+
+.nextRace > div > strong {
+  font-size: 42px;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+}
+
+.nextRace > div > span {
+  display: grid;
+  gap: 4px;
+}
+
+.nextRace > div b {
+  color: white;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.nextRace > div small {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  letter-spacing: 0.09em;
+}
+
+.nextRace > div > svg {
+  margin-left: auto;
+  color: var(--gold);
+}
+
+.demoNotice {
+  margin: 0;
+  padding: 10px 0 12px;
+  color: rgba(255, 255, 255, 0.43);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.section,
+.resultsSection,
+.calendarSection,
+.helmetSection {
+  padding: 118px 42px;
+}
+
+.section {
+  background: var(--track-paper);
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  margin-bottom: 42px;
+}
+
+.sectionHeading h2 {
+  margin: 17px 0 0;
+  font-size: clamp(46px, 7vw, 84px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.085em;
+  line-height: 0.8;
+}
+
+.sectionHeading h2 span {
+  color: var(--cobalt);
+}
+
+.sectionDescription {
+  width: min(320px, 35%);
+  margin: 0 0 5px;
+  color: rgba(6, 16, 45, 0.64);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.statCard {
+  position: relative;
+  position: relative;
+  display: flex;
+  min-height: 188px;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--track-line);
+  background: rgba(243, 241, 233, 0.7);
+  padding: 17px;
+  transition: border-color 300ms ease, background 300ms ease;
+}
+
+.statCard:hover {
+  border-color: var(--cobalt);
+  background: var(--track-paper);
+}
+
+.statCard::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  content: "";
+  pointer-events: none;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.statCard:hover::after {
+  border-color: var(--cobalt);
+  box-shadow: inset 0 0 30px rgba(0, 71, 171, 0.08);
+}
+
+.statLead {
+  background: var(--cobalt);
+  color: white;
+}
+
+.statTop,
+.statBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.statTop {
+  color: var(--cobalt);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.statLead .statTop {
+  color: var(--lime);
+}
+
+.statValue {
+  color: var(--cobalt);
+  font-size: clamp(49px, 6vw, 76px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 0.8;
+}
+
+.statLead .statValue {
+  color: var(--lime);
+}
+
+.statBottom {
+  align-items: flex-end;
+}
+
+.statBottom > span {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+}
+
+.statBottom small {
+  color: rgba(6, 16, 45, 0.5);
+  font-family: "Courier New", monospace;
+  font-size: 7px;
+  text-align: right;
+}
+
+.statLead .statBottom small {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.seasonCard {
+  margin-top: 16px;
+  border: 1px solid var(--track-line);
+  background: var(--track-panel);
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.tableHeading,
+.resultsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.tableHeading h3,
+.resultsTitle h3 {
+  margin: 7px 0 0;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.pill {
+  display: inline-flex;
+  min-height: 29px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--track-line);
+  border-radius: 999px;
+  padding: 0 11px;
+  color: rgba(6, 16, 45, 0.67);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.pill b {
+  color: var(--cobalt);
+}
+
+.seasonRow {
+  display: grid;
+  min-height: 52px;
+  grid-template-columns: 0.75fr 2fr 0.75fr 0.55fr;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--track-line);
+  font-size: 13px;
+}
+
+.seasonRow > strong,
+.seasonRow > b {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+}
+
+.seasonRow > b {
+  color: var(--cobalt);
+}
+
+.tableHeader {
+  min-height: 35px;
+  border-top: 0;
+  color: rgba(6, 16, 45, 0.48);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.mono {
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+}
+
+.resultsSection {
+  background: #fff;
+}
+
+.resultsCard {
+  border: 1px solid var(--track-line);
+  background: var(--track-paper);
+  padding: clamp(18px, 3vw, 30px);
+}
+
+.resultsTitle {
+  margin-bottom: 12px;
+}
+
+.resultsTitle h3 {
+  font-size: 15px;
+}
+
+.liveLabel {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(6, 16, 45, 0.55);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.liveLabel i {
+  width: 6px;
+  height: 6px;
+}
+
+.resultRow {
+  position: relative;
+  display: grid;
+  min-height: 55px;
+  grid-template-columns: 1fr 2.2fr 1fr 0.55fr 1fr;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--track-line);
+  font-size: 12px;
+  transition: background 250ms ease;
+}
+
+.resultRow:not(.resultHeader)::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--lime);
+  content: "";
+  opacity: 0;
+  transform: scaleY(0.2);
+  transition: opacity 250ms ease, transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.resultRow:not(.resultHeader):hover {
+  background: rgba(50, 205, 50, 0.09);
+}
+
+.resultRow:not(.resultHeader):hover::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.resultHeader {
+  min-height: 34px;
+  color: rgba(6, 16, 45, 0.47);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.category {
+  color: var(--cobalt);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.winner {
+  display: grid;
+  width: 34px;
+  height: 29px;
+  place-items: center;
+  background: var(--lime);
+  color: var(--ink);
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  transition: color 250ms ease, background 250ms ease;
+}
+
+.winner:hover {
+  background: var(--ink);
+  color: var(--lime);
+}
+
+.editorialGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.86fr 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 13px;
+  margin-top: 40px;
+}
+
+.editorialPhoto {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background: var(--ink);
+  cursor: default;
+}
+
+.editorialPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.editorialPhoto:hover img {
+  transform: scale(1.055);
+}
+
+.editorialPhoto::after {
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(transparent, rgba(6, 16, 45, 0.78));
+  content: "";
+}
+
+.editorialPhoto figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  bottom: 15px;
+  left: 16px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  opacity: 0.62;
+  transform: translateY(11px);
+  transition: opacity 400ms ease, transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.editorialPhoto:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photoTall {
+  grid-row: span 2;
+}
+
+.photoShort {
+  grid-column: span 1;
+}
+
+.quoteCard {
+  display: flex;
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  background: var(--cobalt);
+  color: white;
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.quoteCard > span {
+  color: var(--lime);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 85px;
+  line-height: 0.65;
+}
+
+.quoteCard > p {
+  margin: 20px 0;
+  font-size: clamp(20px, 2.4vw, 29px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.quoteCard footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--lime);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.quoteCard footer i {
+  width: 17px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.quoteCard footer small {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 7px;
+}
+
+.trophySection {
+  padding: 118px 42px;
+  background: var(--ink);
+  color: white;
+}
+
+.trophySection .sectionHeading h2 {
+  color: white;
+}
+
+.trophySection .sectionHeading h2 span {
+  color: var(--lime);
+}
+
+.trophySection .sectionDescription {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.trophySection .eyebrow {
+  color: var(--lime);
+}
+
+.trophyGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.trophyCard {
+  position: relative;
+  display: flex;
+  min-height: 240px;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+  padding: 18px;
+  transition: border-color 300ms ease, background 300ms ease;
+}
+
+.trophyCard:hover {
+  border-color: var(--lime);
+  background: rgba(0, 71, 171, 0.25);
+}
+
+.trophyCardTop {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gold);
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+}
+
+.trophyGlyph {
+  color: var(--lime);
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.trophyCard:hover .trophyGlyph {
+  color: var(--cobalt);
+  transform: translateY(-5px) rotate(-7deg) scale(1.12);
+}
+
+.trophyCard h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.trophyCard p {
+  margin: 5px 0 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 11px;
+}
+
+.trophyYear {
+  position: absolute;
+  right: 13px;
+  bottom: 13px;
+  color: rgba(255, 255, 255, 0.2);
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+}
+
+.raceSection {
+  padding: 100px 42px 118px;
+  background: #fff;
+}
+
+.countdownBanner {
+  position: relative;
+  display: grid;
+  min-height: 275px;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  gap: 30px;
+  overflow: hidden;
+  background: var(--lime);
+  padding: clamp(25px, 5vw, 55px);
+}
+
+.countdownBanner::after {
+  position: absolute;
+  top: -85px;
+  right: 20%;
+  width: 1px;
+  height: 150%;
+  background: rgba(6, 16, 45, 0.16);
+  content: "";
+  transform: rotate(31deg);
+}
+
+.countdownCopy,
+.countdownPanel {
+  position: relative;
+  z-index: 1;
+}
+
+.countdownCopy .eyebrow {
+  color: rgba(6, 16, 45, 0.65);
+}
+
+.countdownCopy .eyebrow > span {
+  color: var(--cobalt);
+}
+
+.countdownCopy h2 {
+  margin: 18px 0 13px;
+  color: var(--ink);
+  font-size: clamp(43px, 6vw, 70px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.78;
+}
+
+.countdownCopy h2 span {
+  color: var(--cobalt);
+}
+
+.countdownCopy > p:last-child {
+  margin: 0;
+  color: rgba(6, 16, 45, 0.66);
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.countdownPanel {
+  padding: 21px;
+  background: var(--ink);
+  color: white;
+}
+
+.countdownLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--lime);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.countdownLabel i {
+  display: inline-block;
+}
+
+.countdownDigits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.countdownUnit {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.countdownUnit:last-child {
+  border-right: 0;
+}
+
+.countdownUnit strong {
+  display: block;
+  color: white;
+  font-family: "Courier New", monospace;
+  font-size: clamp(31px, 4vw, 50px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.08em;
+  line-height: 1;
+}
+
+.countdownUnit small {
+  color: rgba(255, 255, 255, 0.48);
+  font-family: "Courier New", monospace;
+  font-size: 7px;
+  letter-spacing: 0.12em;
+}
+
+.countdownTrack {
+  height: 2px;
+  margin-top: 22px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.countdownTrack span {
+  display: block;
+  width: 64%;
+  height: 100%;
+  background: var(--lime);
+  box-shadow: 0 0 13px var(--lime);
+}
+
+.countdownMark {
+  position: absolute;
+  right: 24px;
+  bottom: -40px;
+  color: rgba(6, 16, 45, 0.06);
+  font-size: 210px;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.15em;
+  line-height: 1;
+}
+
+.circuitCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 16px;
+  border: 1px solid var(--track-line);
+  background: #fff;
+}
+
+.circuitInfo {
+  padding: clamp(24px, 4vw, 45px);
+}
+
+.circuitInfo h2 {
+  margin: 17px 0 3px;
+  font-size: clamp(39px, 5vw, 58px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.9;
+}
+
+.circuitInfo h2 span {
+  color: var(--cobalt);
+}
+
+.circuitLocation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 25px;
+  color: rgba(6, 16, 45, 0.61);
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.circuitStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.circuitStats > div {
+  display: grid;
+  gap: 5px;
+  border-top: 1px solid var(--track-line);
+  padding-top: 9px;
+}
+
+.circuitStats small {
+  color: rgba(6, 16, 45, 0.52);
+  font-family: "Courier New", monospace;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.circuitStats strong {
+  color: var(--cobalt);
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  letter-spacing: -0.05em;
+}
+
+.circuitStats strong i {
+  font-size: 10px;
+  font-style: normal;
+}
+
+.sessionSchedule {
+  display: grid;
+  gap: 0;
+  margin-top: 25px;
+  border-top: 1px solid var(--track-line);
+}
+
+.sessionSchedule > div {
+  display: grid;
+  min-height: 35px;
+  grid-template-columns: 1.2fr 1fr 0.45fr;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--track-line);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.sessionSchedule small {
+  color: rgba(6, 16, 45, 0.54);
+}
+
+.sessionSchedule b {
+  color: var(--cobalt);
+  text-align: right;
+}
+
+.trackMap {
+  position: relative;
+  display: flex;
+  min-height: 470px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 900px;
+  background:
+    radial-gradient(circle at center, rgba(0, 71, 171, 0.18), transparent 55%),
+    var(--ink);
+}
+
+.trackMap::before {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 35px 35px;
+  content: "";
+  mask-image: radial-gradient(ellipse, #000, transparent 76%);
+}
+
+.trackMap svg {
+  position: relative;
+  width: 88%;
+  overflow: visible;
+}
+
+.trackMap text {
+  fill: rgba(255, 255, 255, 0.65);
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.trackShadow,
+.trackLine,
+.trackStart {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trackShadow {
+  stroke: rgba(50, 205, 50, 0.16);
+  stroke-width: 29px;
+}
+
+.trackLine {
+  stroke: var(--lime);
+  stroke-width: 15px;
+  filter: drop-shadow(0 0 9px rgba(50, 205, 50, 0.65));
+}
+
+.trackShadow,
+.trackLine,
+.trackStart {
+  transform-origin: center;
+}
+
+.trackStart {
+  stroke: var(--gold);
+  stroke-width: 18px;
+}
+
+.trackMarker {
+  fill: var(--gold);
+  stroke: var(--ink);
+  stroke-width: 4px;
+}
+
+.trackMapLabel,
+.mapCoordinates {
+  position: absolute;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.62);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+}
+
+.trackMapLabel {
+  top: 20px;
+  left: 20px;
+  color: var(--lime);
+}
+
+.mapCoordinates {
+  right: 20px;
+  bottom: 20px;
+}
+
+.calendarSection {
+  background: var(--track-paper);
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 13px;
+}
+
+.calendarDemo {
+  color: rgba(6, 16, 45, 0.46);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.calendarList {
+  border-top: 1px solid var(--track-line);
+}
+
+.calendarItem {
+  border-bottom: 1px solid var(--track-line);
+}
+
+.calendarTrigger {
+  display: grid;
+  width: 100%;
+  min-height: 82px;
+  grid-template-columns: 0.45fr 2fr 1fr 1.1fr 24px;
+  align-items: center;
+  gap: 15px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 12px 6px;
+  text-align: left;
+  transition: background 250ms ease, padding 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.calendarTrigger:hover,
+.expanded .calendarTrigger {
+  background: rgba(0, 71, 171, 0.045);
+  padding-inline: 14px;
+}
+
+.roundNumber {
+  color: var(--cobalt);
+  font-family: "Courier New", monospace;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.roundVenue {
+  display: grid;
+  gap: 4px;
+}
+
+.roundVenue strong {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.roundVenue small,
+.roundDate {
+  color: rgba(6, 16, 45, 0.55);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+.roundStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.roundStats i {
+  border: 1px solid var(--track-line);
+  border-radius: 999px;
+  padding: 6px 8px;
+  color: rgba(6, 16, 45, 0.66);
+  font-family: "Courier New", monospace;
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.roundChevron {
+  color: var(--cobalt);
+  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.expanded .roundChevron {
+  transform: rotate(180deg);
+}
+
+.roundDetails {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  overflow: hidden;
+  padding: 0 14px 20px 15%;
+}
+
+.roundDetails > div {
+  border-top: 1px solid rgba(0, 71, 171, 0.23);
+  padding-top: 10px;
+}
+
+.roundDetails > div > span {
+  color: var(--cobalt);
+  font-family: "Courier New", monospace;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.roundDetails p {
+  margin: 7px 0 0;
+  color: rgba(6, 16, 45, 0.7);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.helmetSection {
+  background: #fff;
+}
+
+.helmetFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: -9px 0 20px;
+}
+
+.helmetFilters button {
+  min-height: 32px;
+  border: 1px solid var(--track-line);
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(6, 16, 45, 0.65);
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0 14px;
+  transition: border-color 250ms ease, color 250ms ease, background 250ms ease;
+}
+
+.helmetFilters button:hover,
+.helmetFilters .filterActive {
+  border-color: var(--cobalt);
+  background: var(--cobalt);
+  color: white;
+}
+
+.helmetGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.helmetCard {
+  min-width: 0;
+  border: 1px solid var(--track-line);
+  background: var(--track-paper);
+}
+
+.helmetArtArea {
+  position: relative;
+  display: grid;
+  min-height: 240px;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 48% 55%, rgba(0, 71, 171, 0.14), transparent 62%);
+}
+
+.helmetArtArea::before {
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(6, 16, 45, 0.09);
+  content: "";
+}
+
+.helmetArtArea > span,
+.helmetArtArea > i {
+  position: absolute;
+  z-index: 1;
+  color: rgba(6, 16, 45, 0.55);
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.helmetArtArea > span {
+  top: 24px;
+  left: 25px;
+}
+
+.helmetArtArea > i {
+  right: 25px;
+  bottom: 23px;
+  color: var(--cobalt);
+}
+
+.helmetArtwork {
+  width: 90%;
+  max-width: 300px;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.helmetCard:hover .helmetArtwork {
+  transform: translateY(-7px) rotate(-3deg) scale(1.04);
+}
+
+.helmetMeta {
+  position: relative;
+  min-height: 80px;
+  border-top: 1px solid var(--track-line);
+  padding: 13px 15px;
+}
+
+.helmetMeta > span {
+  color: var(--cobalt);
+  font-family: "Courier New", monospace;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.helmetMeta h3 {
+  margin: 5px 25px 0 0;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.helmetMeta > svg {
+  position: absolute;
+  right: 14px;
+  bottom: 16px;
+  color: var(--cobalt);
+}
+
+.footer {
+  padding: 42px;
+  background: var(--ink);
+  color: white;
+}
+
+.footer > div {
+  display: grid;
+  width: min(100%, 1280px);
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 17px 30px;
+  margin-inline: auto;
+}
+
+.footerBrand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.footerBrand > span {
+  color: var(--gold);
+  font-size: 26px;
+  font-style: italic;
+}
+
+.footerBrand i {
+  color: var(--lime);
+  font-size: 9px;
+  font-style: normal;
+}
+
+.footer > div > p {
+  margin: 0;
+  color: var(--lime);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.footer > div > div {
+  display: flex;
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.17);
+  padding-top: 15px;
+}
+
+.footer > div > div a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  transition: color 200ms ease;
+}
+
+.footer > div > div a:hover {
+  color: var(--lime);
+}
+
+.footer > div > small {
+  grid-column: 1 / -1;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: "Courier New", monospace;
+  font-size: 7px;
+  letter-spacing: 0.09em;
+}
+
+@media (max-width: 1000px) {
+  .header {
+    padding-inline: 24px !important;
+  }
+
+  .hero {
+    padding-inline: 24px;
+  }
+
+  .heroInner {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 24px;
+  }
+
+  .heroVisual {
+    min-height: 400px;
+  }
+
+  .section,
+  .resultsSection,
+  .calendarSection,
+  .helmetSection,
+  .trophySection,
+  .raceSection {
+    padding-inline: 24px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .statCard {
+    min-height: 160px;
+  }
+
+  .trophyGrid,
+  .helmetGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: 15px 22px !important;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .mobileNav {
+    display: grid;
+  }
+
+  .hero {
+    padding: 120px 20px 0;
+  }
+
+  .heroInner {
+    display: flex;
+    min-height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .heroCopy {
+    padding-bottom: 8px;
+  }
+
+  .hero h1 {
+    margin-top: 21px;
+    font-size: clamp(84px, 24vw, 125px);
+  }
+
+  .heroLead {
+    font-size: 14px;
+  }
+
+  .bioTags {
+    gap: 6px;
+    margin-top: 20px;
+  }
+
+  .bioTags > span {
+    min-height: 27px;
+    font-size: 7px;
+  }
+
+  .scrollLink {
+    margin-top: 22px;
+  }
+
+  .heroVisual {
+    min-height: 340px;
+    margin: 8px 0 26px;
+  }
+
+  .signature {
+    right: 8%;
+    width: 42%;
+  }
+
+  .raceStatus {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .previousRace,
+  .nextRace {
+    min-height: 114px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+
+  .previousRace {
+    padding-right: 12px;
+  }
+
+  .nextRace {
+    padding-left: 12px;
+  }
+
+  .previousRace > p {
+    font-size: 11px;
+  }
+
+  .previousRace > strong {
+    font-size: 10px;
+  }
+
+  .nextRace > div {
+    gap: 8px;
+  }
+
+  .nextRace > div > strong {
+    font-size: 34px;
+  }
+
+  .nextRace > div b {
+    font-size: 11px;
+  }
+
+  .nextRace > div small,
+  .statusLabel {
+    font-size: 7px;
+  }
+
+  .section,
+  .resultsSection,
+  .calendarSection,
+  .helmetSection,
+  .trophySection {
+    padding: 78px 20px;
+  }
+
+  .raceSection {
+    padding: 68px 20px 78px;
+  }
+
+  .sectionHeading {
+    display: block;
+    margin-bottom: 28px;
+  }
+
+  .sectionHeading h2 {
+    font-size: clamp(49px, 13vw, 72px);
+  }
+
+  .sectionDescription {
+    width: auto;
+    max-width: 330px;
+    margin-top: 18px;
+    font-size: 12px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .statCard {
+    min-height: 145px;
+    padding: 13px;
+  }
+
+  .statValue {
+    font-size: 58px;
+  }
+
+  .statBottom {
+    display: grid;
+    gap: 4px;
+  }
+
+  .statBottom small {
+    text-align: left;
+  }
+
+  .tableHeading,
+  .resultsTitle {
+    align-items: flex-start;
+  }
+
+  .tableHeading h3 {
+    font-size: 20px;
+  }
+
+  .seasonCard,
+  .resultsCard {
+    padding: 16px 12px;
+  }
+
+  .seasonRow {
+    grid-template-columns: 0.55fr 1.5fr 0.5fr 0.4fr;
+    gap: 6px;
+    font-size: 10px;
+  }
+
+  .seasonRow > strong,
+  .seasonRow > b,
+  .mono {
+    font-size: 8px;
+  }
+
+  .seasonRow > span:nth-child(2) {
+    font-size: 9px;
+  }
+
+  .tableHeader {
+    font-size: 6px;
+  }
+
+  .pill {
+    font-size: 7px;
+  }
+
+  .resultRow {
+    grid-template-columns: 0.8fr 1.5fr 0.85fr 0.4fr 0.8fr;
+    gap: 6px;
+    font-size: 9px;
+  }
+
+  .resultHeader {
+    font-size: 6px;
+  }
+
+  .category {
+    font-size: 7px;
+  }
+
+  .editorialGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 240px 170px 220px;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .photoTall {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .photoShort {
+    grid-column: 2;
+  }
+
+  .quoteCard {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .quoteCard > p {
+    max-width: 350px;
+    font-size: 24px;
+  }
+
+  .trophyGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .trophyCard {
+    min-height: 205px;
+    padding: 13px;
+  }
+
+  .trophyCard h3 {
+    font-size: 11px;
+  }
+
+  .trophyCard p {
+    font-size: 9px;
+  }
+
+  .countdownBanner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 22px 16px;
+  }
+
+  .countdownBanner::after {
+    display: none;
+  }
+
+  .countdownCopy h2 {
+    font-size: 57px;
+  }
+
+  .countdownPanel {
+    padding: 15px 12px;
+  }
+
+  .countdownUnit strong {
+    font-size: 34px;
+  }
+
+  .circuitCard {
+    grid-template-columns: 1fr;
+  }
+
+  .circuitInfo {
+    padding: 23px 17px;
+  }
+
+  .trackMap {
+    min-height: 310px;
+  }
+
+  .calendarHeader {
+    align-items: flex-start;
+  }
+
+  .calendarDemo {
+    max-width: 100px;
+    line-height: 1.4;
+    text-align: right;
+  }
+
+  .calendarTrigger {
+    min-height: 75px;
+    grid-template-columns: 32px 1fr 20px;
+    gap: 10px;
+    padding-inline: 2px;
+  }
+
+  .calendarTrigger:hover,
+  .expanded .calendarTrigger {
+    padding-inline: 8px;
+  }
+
+  .roundNumber {
+    font-size: 13px;
+  }
+
+  .roundVenue strong {
+    font-size: 11px;
+  }
+
+  .roundVenue small,
+  .roundDate {
+    font-size: 7px;
+  }
+
+  .roundDate {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .roundStats {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .calendarTrigger .roundVenue {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .roundChevron {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+  }
+
+  .roundDetails {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 2px 9px 16px 43px;
+  }
+
+  .roundDetails p {
+    font-size: 10px;
+  }
+
+  .helmetGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .helmetArtArea {
+    min-height: 175px;
+  }
+
+  .helmetArtArea::before {
+    inset: 9px;
+  }
+
+  .helmetMeta {
+    min-height: 72px;
+    padding: 10px;
+  }
+
+  .helmetMeta h3 {
+    font-size: 10px;
+  }
+
+  .helmetMeta > svg {
+    right: 9px;
+    bottom: 10px;
+    width: 14px;
+  }
+
+  .footer {
+    padding: 28px 20px;
+  }
+
+  .footer > div {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .footer > div > p {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 420px) {
+  .resultHeader span:nth-child(1),
+  .resultRow .category {
+    display: none;
+  }
+
+  .resultRow {
+    grid-template-columns: 1.7fr 0.85fr 0.5fr 0.8fr;
+  }
+
+  .resultHeader {
+    grid-template-columns: 1.7fr 0.85fr 0.5fr 0.8fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroWord,
+  .heroVisual,
+  .statCard,
+  .resultRow,
+  .editorialPhoto img,
+  .trophyCard,
+  .helmetArtwork {
+    transition: none;
+  }
+}
