@@ -53,22 +53,22 @@ const results = [
 
 const photoMoments = [
   {
-    src: 'https://images.pexels.com/photos/11086446/pexels-photo-11086446.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    alt: 'Kart acelerando durante uma corrida',
+    src: '/Imagens/CKB3-AMIKA-M-621.jpg',
+    alt: 'Karts disputando uma etapa no kartódromo',
     location: 'VELOPARK / BRASIL',
     year: '2026',
     className: 'photoTall',
   },
   {
-    src: 'https://images.pexels.com/photos/12797362/pexels-photo-12797362.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    alt: 'Piloto concentrado antes da corrida',
+    src: '/Imagens/CKB3-AMIKA-M-622.jpg',
+    alt: 'Danilo Vicentin acompanhando uma etapa no kartódromo',
     location: 'CASCAVEL / BRASIL',
     year: '2025',
     className: 'photoShort',
   },
   {
-    src: 'https://images.pexels.com/photos/27467743/pexels-photo-27467743.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    alt: 'Kart em alta velocidade na pista',
+    src: '/Imagens/CKB3-AMIKA-M-759.jpg',
+    alt: 'Kart na pista durante uma etapa de corrida',
     location: 'SERRA / BRASIL',
     year: '2024',
     className: 'photoShort',
@@ -288,7 +288,7 @@ export default function OnTrackPage() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        <Link href="/" className="brand-mark" aria-label="Pilot 23 — página inicial"><span>23</span><i>{'///'}</i></Link>
+        <Link href="/" className="brand-mark" aria-label="Danilo Vicentin — página inicial"><img src="/Marca/logo.png" alt="" /></Link>
         <nav className={styles.desktopNav} aria-label="Navegação principal">
           <Link href="/#journey" className="nav-link">01 <span>A JORNADA</span></Link>
           <Link href="/on-track" className={styles.activeNav}>02 <span>ON-TRACK</span></Link>
@@ -315,7 +315,7 @@ export default function OnTrackPage() {
         <motion.div className={styles.heroDisplay} style={{ y: titleParallax }} aria-hidden="true">ON TRACK</motion.div>
         <div className={styles.heroInner}>
           <motion.div className={styles.heroCopy} style={{ y: useTransform(scrollYProgress, [0, 1], [0, -48]) }} initial="hidden" animate="show" variants={staggerIn}>
-            <p className={styles.eyebrow}><span>{'///'}</span> PILOT 23 · CADERNO DE PISTA</p>
+            <p className={styles.eyebrow}><span>{'///'}</span> <img className={styles.inlineLogo} src="/Marca/logo.png" alt="Logo de Danilo Vicentin" /> · CADERNO DE PISTA</p>
             <motion.h1 aria-label="On Track" variants={{ hidden: {}, show: { transition: { staggerChildren: 0.18, delayChildren: 0.12 } } }}>
               <span className={styles.heroWordMask}><motion.span className={styles.heroWord} variants={revealWord}>ON</motion.span></span>
               <span className={styles.heroWordMask}><motion.span className={`${styles.heroWord} ${styles.heroWordAccent}`} variants={revealWord}>TRACK</motion.span></span>
@@ -342,7 +342,7 @@ export default function OnTrackPage() {
             animate={{ clipPath: 'inset(0 0 0% 0 round 8px)', opacity: 1 }}
             transition={{ duration: 1.1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
-            <img src="https://images.pexels.com/photos/11086446/pexels-photo-11086446.jpeg?auto=compress&cs=tinysrgb&h=1200&w=1800" alt="Kart acelerando em uma curva durante a corrida" />
+            <img src="/Imagens/CKB3-AMIKA-M-759.jpg" alt="Kart na pista durante uma etapa de corrida" />
             <div className={styles.heroImageWash} />
             <span className={styles.imageCoordinates}>23°33&apos;S&nbsp; 46°39&apos;W</span>
             <span className={styles.imageFrameLabel}>ON BOARD / RACE DAY</span>
@@ -350,7 +350,7 @@ export default function OnTrackPage() {
               <motion.path d="M8 60c20-45 25-38 13 2-8 27 20-37 29-31 5 3-15 32-3 30 8-1 16-25 22-25 4 0-7 24-3 26 3 2 11-22 17-21 5 1-7 19 1 20 6 1 13-21 20-22 7-1-5 20 4 21 7 1 14-22 22-22 7 0-5 20 4 21 8 1 20-19 30-28 5-5-9 23-2 27 7 4 26-16 40-20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2.2, delay: 1, ease: easeOut }} />
               <motion.path d="M123 76c35 4 65 1 97-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.8, delay: 2.6, ease: easeOut }} />
             </svg>
-            <span className={styles.imageIndex}>FRAME 023 <span>•</span> 2026</span>
+            <span className={styles.imageIndex}><img className={styles.inlineLogo} src="/Marca/logo.png" alt="Logo de Danilo Vicentin" /> <span>•</span> 2026</span>
           </motion.div>
         </div>
         <div className={styles.raceStatus}>
@@ -450,7 +450,7 @@ export default function OnTrackPage() {
           <motion.div className={styles.countdownBanner} initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.8, ease: easeOut }}>
             <div className={styles.countdownCopy}><p className={styles.eyebrow}><span>{'///'}</span> A PRÓXIMA LARGADA</p><h2>O GRID NÃO<br /><span>ESPERA.</span></h2><p>INTERLAGOS · ROUND {nextRace.round} · {nextRace.date}</p></div>
             <div className={styles.countdownPanel}><span className={styles.countdownLabel}><motion.i animate={{ opacity: [1, 0.3, 1], scale: [1, 0.8, 1] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }} /> LIVE / NEXT</span><Countdown /><div className={styles.countdownTrack}><motion.span animate={{ width: ['52%', '68%', '52%'] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }} /></div></div>
-            <div className={styles.countdownMark}>23</div>
+            <img className={styles.countdownMark} src="/Marca/logo.png" alt="" />
           </motion.div>
 
           <motion.div className={styles.circuitCard} initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.85, ease: easeOut }}>
@@ -524,7 +524,7 @@ export default function OnTrackPage() {
             <AnimatePresence mode="popLayout">
               {visibleHelmets.map((design) => (
                 <motion.article className={styles.helmetCard} key={design.name} layout initial={{ opacity: 0, scale: 0.96, y: 14 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.96, y: 10 }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                  <div className={styles.helmetArtArea}><span>{design.year}</span><HelmetArtwork primary={design.primary} secondary={design.secondary} /><i>DV / 23</i></div>
+                  <div className={styles.helmetArtArea}><span>{design.year}</span><HelmetArtwork primary={design.primary} secondary={design.secondary} /><img className={styles.helmetLogo} src="/Marca/logo.png" alt="Logo de Danilo Vicentin" /></div>
                   <div className={styles.helmetMeta}><span>{design.series}</span><h3>{design.name}</h3><ArrowUpRight size={17} /></div>
                 </motion.article>
               ))}
@@ -535,10 +535,10 @@ export default function OnTrackPage() {
 
       <footer className={styles.footer}>
         <div className={styles.container}>
-          <Link href="/" className={styles.footerBrand}><span>23</span> PILOT <i>{'///'}</i></Link>
+          <Link href="/" className={styles.footerBrand}><img className={styles.footerLogo} src="/Marca/logo.png" alt="" /> PILOT <i>{'///'}</i></Link>
           <p>A PRÓXIMA VOLTA COMEÇA AGORA.</p>
           <div><Link href="/#socials"><Instagram size={15} /> ACOMPANHE A JORNADA</Link><Link href="/#contact">CONTATO <ArrowRight size={15} /></Link></div>
-          <small>© 2026 PILOT 23 · DADOS DE PISTA DEMONSTRATIVOS</small>
+          <small>© 2026 <img className={styles.footerCopyrightLogo} src="/Marca/logo.png" alt="Logo de Danilo Vicentin" /> PILOT · DADOS DE PISTA DEMONSTRATIVOS</small>
         </div>
       </footer>
     </main>

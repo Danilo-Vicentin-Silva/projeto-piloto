@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'On-Track — Pilot 23',
+  title: 'On-Track — Danilo Vicentin',
   description: 'Telemetria, resultados e calendário de pista de Danilo Vicentin.',
 };
 
