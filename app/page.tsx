@@ -12,29 +12,31 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Instagram,
+  Mail,
   Menu,
   MoveRight,
   Play,
   X,
+  Zap,
 } from "lucide-react"
 
 const photos = [
   {
     src: "/Imagens/CleevStudio_CKB_JUL26-0668.jpg",
-    label: "MOMENTO 01",
-    category: "KARTING",
+    label: "CKB 2026 - 8º ETAPA",
+    category: "KNO / 2026",
     className: "md:col-span-7 md:row-span-2",
   },
   {
     src: "/Imagens/CKB3-AMIKA-M-606.jpg",
-    label: "MOMENTO 02",
-    category: "KARTING",
+    label: "CKB 2026 - 5º ETAPA",
+    category: "KNO / 2026",
     className: "md:col-span-5",
   },
   {
     src: "/Imagens/CKB3-AMIKA-M-680.jpg",
-    label: "MOMENTO 03",
-    category: "KARTING",
+    label: "CKB 2026 - 3º ETAPA",
+    category: "KNO / 2026",
     className: "md:col-span-5",
   },
 ]
@@ -60,6 +62,34 @@ const socialCards = [
     caption: { pt: "Assista à corrida", en: "Watch the race" },
     src: photos[2].src,
     href: "https://www.youtube.com/@danilovicentin",
+  },
+  {
+    platform: "TWITCH",
+    handle: "DANILOVICENTIN",
+    caption: { pt: "Ao vivo do paddock", en: "Live from the paddock" },
+    src: "/Imagens/CleevStudio_CKB_JUL26-0616.jpg",
+    href: "https://www.twitch.tv/danilovicentin",
+  },
+  {
+    platform: "INSTAGRAM",
+    handle: "@danilovicentin",
+    caption: { pt: "O próximo capítulo", en: "The next chapter" },
+    src: "/Imagens/CKB3-AMIKA-M-679.jpg",
+    href: "https://www.instagram.com/danilovicentin/",
+  },
+  {
+    platform: "YOUTUBE",
+    handle: "DANILO VICENTIN",
+    caption: { pt: "Um dia no paddock", en: "A day in the paddock" },
+    src: "/Imagens/CLEEVSTUDIO-21JUL26-CKB-740.jpg",
+    href: "https://www.youtube.com/@danilovicentin",
+  },
+  {
+    platform: "TIKTOK",
+    handle: "@danilovicentin",
+    caption: { pt: "Na linha de largada", en: "On the starting grid" },
+    src: "/Imagens/CKB3-AMIKA-M-759.jpg",
+    href: "https://www.tiktok.com/@danilovicentin",
   },
 ]
 
@@ -91,11 +121,11 @@ const copy = {
     socialTitle: "WHAT’S UP\nNAS REDES",
     socialFollow: "Siga Danilo nas redes sociais",
     socialLinkLabel: "Abrir perfil de",
-    partnersEyebrow: "04 / O próximo parceiro",
-    partnersTitle: "Acelere\ncomigo.",
+    partnersEyebrow: "04 / Parceiros de corrida",
+    partnersTitle: "Acelere\ncom a minha marca.",
     partnersBody:
-      "Ainda não tenho patrocinadores. Se a sua marca quer apoiar minha trajetória no kart, vamos conversar.",
-    contact: "Vamos conversar sobre uma parceria",
+      "Marcas que querem sair do grid comigo e construir o próximo capítulo.",
+    contact: "Entrar em contato",
     footer: "A próxima volta começa agora.",
   },
   en: {
@@ -125,11 +155,11 @@ const copy = {
     socialTitle: "WHAT’S UP\nON SOCIALS",
     socialFollow: "Follow Danilo on social media",
     socialLinkLabel: "Visit",
-    partnersEyebrow: "04 / The next partner",
-    partnersTitle: "Accelerate\nwith me.",
+    partnersEyebrow: "04 / Race partners",
+    partnersTitle: "Accelerate\nwith my brand.",
     partnersBody:
-      "I don't have sponsors yet. If your brand would like to support my karting journey, let's talk.",
-    contact: "Let's talk about a partnership",
+      "Brands ready to leave the grid with me and build the next chapter.",
+    contact: "Start a conversation",
     footer: "The next lap starts now.",
   },
 }
@@ -139,13 +169,10 @@ type Lang = keyof typeof copy
 function MagneticButton({
   children,
   className = "",
-  href,
 }: {
   children: React.ReactNode
   className?: string
-  href?: string
 }) {
-  const destination = href ?? "#journey"
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const springX = useSpring(x, { stiffness: 300, damping: 20 })
@@ -153,9 +180,7 @@ function MagneticButton({
 
   return (
     <motion.a
-      href={destination}
-      target={destination.startsWith("https://") ? "_blank" : undefined}
-      rel={destination.startsWith("https://") ? "noreferrer" : undefined}
+      href="#contact"
       className={`magnetic-button group ${className}`}
       style={{ x: springX, y: springY }}
       onMouseMove={(event) => {
@@ -446,7 +471,7 @@ export default function Home() {
               <i>THE STARTING LINE</i>
             </div>
             <div className="photo-caption">
-              KARTING <span>NA PISTA</span>
+              SÃO PAULO / BRAZIL <span>2024</span>
             </div>
           </motion.div>
         </div>
@@ -632,14 +657,42 @@ export default function Home() {
               {activeCopy.partnersBody}
             </motion.p>
           </div>
+          <div className="sponsor-grid mt-24">
+            {["APEX", "NOVA", "SHIFT", "VOLT"].map((sponsor, index) => (
+              <motion.div
+                key={sponsor}
+                className="sponsor"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                animate={{ y: [0, index % 2 ? -5 : 5, 0] }}
+                viewport={{ once: false }}
+                transition={{
+                  opacity: { delay: index * 0.1 },
+                  scale: { delay: index * 0.1 },
+                  y: {
+                    duration: 3 + index * 0.35,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                }}
+                whileHover={{ color: "#32cd32", scale: 1.08 }}
+              >
+                {sponsor}
+                <small>RACING / 0{index + 1}</small>
+              </motion.div>
+            ))}
+          </div>
           <div id="contact" className="contact-row mt-24">
             <span>{activeCopy.contact}</span>
             <div className="flex flex-wrap gap-4">
-              <MagneticButton
-                className="button-lime"
-                href="https://www.instagram.com/danilo_vicentin_silva/"
-              >
+              <MagneticButton className="button-lime">
+                <Mail size={17} /> EMAIL
+              </MagneticButton>
+              <MagneticButton className="button-outline">
                 <Instagram size={17} /> INSTAGRAM
+              </MagneticButton>
+              <MagneticButton className="button-outline">
+                <Zap size={17} /> WHATSAPP
               </MagneticButton>
             </div>
           </div>
@@ -668,6 +721,9 @@ export default function Home() {
               <span>PILOT</span>
               <strong>DRIVER</strong>
             </div>
+            <a href="#contact" className="footer-store">
+              <Zap size={14} /> STORE
+            </a>
             <a href="#top" className="footer-menu">
               <Menu size={17} />
             </a>
@@ -709,7 +765,7 @@ export default function Home() {
             }}
           >
             <small>PAGES</small>
-            {["HOME", "ON TRACK", "GALLERY", "PARTNERS"].map(
+            {["HOME", "ON TRACK", "OFF TRACK", "CALENDAR"].map(
               (item, index) => (
                 <motion.a
                   key={item}
@@ -747,30 +803,36 @@ export default function Home() {
             }}
           >
             <small>FOLLOW ON</small>
-            {socialCards
-              .filter(
-                (card, index, cards) =>
-                  cards.findIndex(
-                    (item) => item.platform === card.platform,
-                  ) === index,
-              )
-              .map((card) => (
-                <motion.a
-                  key={card.platform}
-                  href={card.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  variants={{
-                    hidden: { opacity: 0, x: 25 },
-                    show: { opacity: 1, x: 0 },
-                  }}
-                >
-                  {card.platform}
-                </motion.a>
-              ))}
+            {["INSTAGRAM", "YOUTUBE", "TIKTOK", "LINKEDIN"].map((item) => (
+              <motion.a
+                key={item}
+                href="#contact"
+                variants={{
+                  hidden: { opacity: 0, x: 25 },
+                  show: { opacity: 1, x: 0 },
+                }}
+              >
+                {item}
+              </motion.a>
+            ))}
           </motion.nav>
+          <motion.div
+            className="footer-sponsor-strip"
+            animate={{ x: ["0%", "-14%", "0%"] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          >
+            {["APEX", "NOVA", "SHIFT", "VOLT", "PURE ENERGY", "GO FASTER"].map(
+              (sponsor) => (
+                <span key={sponsor}>{sponsor}</span>
+              ),
+            )}
+          </motion.div>
           <div className="footer-base">
-            <span>© {new Date().getFullYear()} DANILO VICENTIN</span>
+            <span>© 2024 DRIVER PORTFOLIO. ALL RIGHTS RESERVED</span>
+            <span>
+              <a href="#top">PRIVACY POLICY</a>
+              <a href="#top">TERMS</a>
+            </span>
           </div>
         </div>
       </footer>

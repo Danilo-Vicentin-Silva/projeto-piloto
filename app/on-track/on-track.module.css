@@ -728,19 +728,6 @@
   margin-top: 40px;
 }
 
-.trackGallery {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: minmax(260px, 34vw);
-}
-
-.trackGallery .photoTall {
-  grid-row: auto;
-}
-
-.trackGallery .photoShort {
-  grid-column: auto;
-}
-
 .editorialPhoto {
   position: relative;
   overflow: hidden;
@@ -2064,13 +2051,6 @@
   .trophyCard,
   .helmetArtwork {
     transition: none;
-  }
-}
-
-@media (max-width: 700px) {
-  .trackGallery {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 240px);
   }
 }
 
