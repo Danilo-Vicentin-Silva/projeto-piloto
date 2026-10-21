@@ -657,31 +657,7 @@ export default function Home() {
               {activeCopy.partnersBody}
             </motion.p>
           </div>
-          <div className="sponsor-grid mt-24">
-            {["APEX", "NOVA", "SHIFT", "VOLT"].map((sponsor, index) => (
-              <motion.div
-                key={sponsor}
-                className="sponsor"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                animate={{ y: [0, index % 2 ? -5 : 5, 0] }}
-                viewport={{ once: false }}
-                transition={{
-                  opacity: { delay: index * 0.1 },
-                  scale: { delay: index * 0.1 },
-                  y: {
-                    duration: 3 + index * 0.35,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  },
-                }}
-                whileHover={{ color: "#32cd32", scale: 1.08 }}
-              >
-                {sponsor}
-                <small>RACING / 0{index + 1}</small>
-              </motion.div>
-            ))}
-          </div>
+          <div aria-hidden="true" className="sponsor-grid mt-24 min-h-[150px]" />
           <div id="contact" className="contact-row mt-24">
             <span>{activeCopy.contact}</span>
             <div className="flex flex-wrap gap-4">
@@ -816,17 +792,6 @@ export default function Home() {
               </motion.a>
             ))}
           </motion.nav>
-          <motion.div
-            className="footer-sponsor-strip"
-            animate={{ x: ["0%", "-14%", "0%"] }}
-            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          >
-            {["APEX", "NOVA", "SHIFT", "VOLT", "PURE ENERGY", "GO FASTER"].map(
-              (sponsor) => (
-                <span key={sponsor}>{sponsor}</span>
-              ),
-            )}
-          </motion.div>
           <div className="footer-base">
             <span>© 2024 DRIVER PORTFOLIO. ALL RIGHTS RESERVED</span>
             <span>
