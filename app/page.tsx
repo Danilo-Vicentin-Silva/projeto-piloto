@@ -3,9 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import {
   motion,
-  useMotionValue,
   useScroll,
-  useSpring,
   useTransform,
 } from "framer-motion"
 import {
@@ -13,98 +11,19 @@ import {
   ArrowUpRight,
   Instagram,
   Mail,
-  Menu,
   MoveRight,
   Play,
-  X,
   Youtube,
   Zap,
 } from "lucide-react"
-
-const photos = [
-  {
-    src: "/Imagens/CleevStudio_CKB_JUL26-0668.jpg",
-    label: "CKB 2026 - 8º ETAPA",
-    category: "KNO / 2026",
-    className: "md:col-span-7 md:row-span-2",
-  },
-  {
-    src: "/Imagens/CKB3-AMIKA-M-606.jpg",
-    label: "CKB 2026 - 5º ETAPA",
-    category: "KNO / 2026",
-    className: "md:col-span-5",
-  },
-  {
-    src: "/Imagens/CKB3-AMIKA-M-680.jpg",
-    label: "CKB 2026 - 3º ETAPA",
-    category: "KNO / 2026",
-    className: "md:col-span-5",
-  },
-]
-
-const socialCards = [
-  {
-    platform: "INSTAGRAM",
-    handle: "@danilovicentin",
-    caption: { pt: "Bastidores da corrida", en: "Behind race day" },
-    src: photos[1].src,
-    href: "https://www.instagram.com/danilo_vicentin_silva/",
-  },
-  {
-    platform: "TIKTOK",
-    handle: "@danilovicentin",
-    caption: { pt: "Pé embaixo", en: "All the way in" },
-    src: photos[0].src,
-    href: "https://www.tiktok.com/@danilovicentindasilva",
-  },
-  {
-    platform: "YOUTUBE",
-    handle: "DANILO VICENTIN",
-    caption: { pt: "Assista à corrida", en: "Watch the race" },
-    src: photos[2].src,
-    href: "https://www.youtube.com/@danilovicentin",
-  },
-  {
-    platform: "TWITCH",
-    handle: "DANILOVICENTIN",
-    caption: { pt: "Ao vivo do paddock", en: "Live from the paddock" },
-    src: "/Imagens/CleevStudio_CKB_JUL26-0616.jpg",
-    href: "https://www.twitch.tv/danilovicentin",
-  },
-  {
-    platform: "INSTAGRAM",
-    handle: "@danilovicentin",
-    caption: { pt: "O próximo capítulo", en: "The next chapter" },
-    src: "/Imagens/CKB3-AMIKA-M-679.jpg",
-    href: "https://www.instagram.com/danilovicentin/",
-  },
-  {
-    platform: "YOUTUBE",
-    handle: "DANILO VICENTIN",
-    caption: { pt: "Um dia no paddock", en: "A day in the paddock" },
-    src: "/Imagens/CLEEVSTUDIO-21JUL26-CKB-740.jpg",
-    href: "https://www.youtube.com/@danilovicentin",
-  },
-  {
-    platform: "TIKTOK",
-    handle: "@danilovicentin",
-    caption: { pt: "Na linha de largada", en: "On the starting grid" },
-    src: "/Imagens/CKB3-AMIKA-M-759.jpg",
-    href: "https://www.tiktok.com/@danilovicentin",
-  },
-]
+import { Header } from "@/components/shared/Header"
+import { Footer } from "@/components/shared/Footer"
+import { MagneticButton } from "@/components/shared/MagneticButton"
+import { NAV_ITEMS, NAV_LINKS, ANIMATION_CONFIG } from "@/lib/constants"
+import { photos, socialCards } from "@/lib/data"
 
 const copy = {
   pt: {
-    nav: [
-      "A jornada",
-      "Galeria",
-      "On-Track",
-      "Sobre mim",
-      "Redes sociais",
-      "Parcerias",
-      "Contato",
-    ],
     eyebrow: "Piloto de karting • Brasil",
     heroName: "DANILO\nVICENTIN",
     heroTagline: "NASCIDO PARA ACELERAR",
@@ -131,15 +50,6 @@ const copy = {
     footer: "A próxima volta começa agora.",
   },
   en: {
-    nav: [
-      "The journey",
-      "Gallery",
-      "On-Track",
-      "About me",
-      "Social media",
-      "Partners",
-      "Contact",
-    ],
     eyebrow: "Karting driver • Brazil",
     heroName: "DANILO\nVICENTIN",
     heroTagline: "BORN TO PUSH",
@@ -169,42 +79,6 @@ const copy = {
 
 type Lang = keyof typeof copy
 
-function MagneticButton({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode
-  className?: string
-}) {
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-  const springX = useSpring(x, { stiffness: 300, damping: 20 })
-  const springY = useSpring(y, { stiffness: 300, damping: 20 })
-
-  return (
-    <motion.a
-      href="#contact"
-      className={`magnetic-button group ${className}`}
-      style={{ x: springX, y: springY }}
-      onMouseMove={(event) => {
-        const rect = event.currentTarget.getBoundingClientRect()
-        x.set((event.clientX - (rect.left + rect.width / 2)) * 0.18)
-        y.set((event.clientY - (rect.top + rect.height / 2)) * 0.18)
-      }}
-      onMouseLeave={() => {
-        x.set(0)
-        y.set(0)
-      }}
-    >
-      <span className="relative z-10 flex items-center gap-3">
-        {children}
-        <ArrowUpRight size={18} />
-      </span>
-      <span className="button-shimmer" />
-    </motion.a>
-  )
-}
-
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="section-label">
@@ -216,9 +90,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("pt")
-  const [menuOpen, setMenuOpen] = useState(false)
   const [activeSocial, setActiveSocial] = useState(3)
-  const [hasScrolled, setHasScrolled] = useState(false)
   const mainRef = useRef<HTMLElement>(null)
   const { scrollYProgress, scrollY } = useScroll({
     target: mainRef,
@@ -229,93 +101,14 @@ export default function Home() {
   const lineX = useTransform(scrollY, [0, 2400], [0, -420])
   const activeCopy = copy[lang]
 
-  useEffect(() => {
-    const onScroll = () => setHasScrolled(window.scrollY > 40)
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
-
   return (
     <main ref={mainRef} className="overflow-hidden bg-[#06102d] text-white">
-      <motion.header
-        initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.15 }}
-        className={`site-header ${hasScrolled ? "is-scrolled" : ""}`}
-      >
-        <a href="#top" className="brand-mark" aria-label="Danilo Vicentin — página inicial">
-          <img src="/Marca/logo.png" alt="" />
-        </a>
-        <nav className="hidden items-center gap-4 lg:flex lg:gap-5 xl:gap-8">
-          {activeCopy.nav.map((item, index) => (
-            <motion.a
-              initial={{ opacity: 0, x: 15 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.35 + index * 0.08 }}
-              key={item}
-              href={
-                [
-                  "#journey",
-                  "#gallery",
-                  "/on-track",
-                  "/about",
-                  "#socials",
-                  "#partners",
-                  "#contact",
-                ][index]
-              }
-              className="nav-link"
-            >
-              0{index + 1} <span>{item}</span>
-            </motion.a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-4">
-          <button
-            className="language-switch"
-            onClick={() => setLang(lang === "pt" ? "en" : "pt")}
-            aria-label="Change language"
-          >
-            <span className={lang === "pt" ? "active" : ""}>PT</span>
-            <b>/</b>
-            <span className={lang === "en" ? "active" : ""}>EN</span>
-          </button>
-          <button
-            className="menu-button lg:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Open menu"
-          >
-            {menuOpen ? <X size={21} /> : <Menu size={21} />}
-          </button>
-        </div>
-        {menuOpen && (
-          <motion.nav
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mobile-menu"
-          >
-            {activeCopy.nav.map((item, index) => (
-              <a
-                onClick={() => setMenuOpen(false)}
-                key={item}
-                href={
-                  [
-                    "#journey",
-                    "#gallery",
-                    "/on-track",
-                    "/about",
-                    "#socials",
-                    "#partners",
-                    "#contact",
-                  ][index]
-                }
-              >
-                {item}
-              </a>
-            ))}
-          </motion.nav>
-        )}
-      </motion.header>
+      <Header
+        lang={lang}
+        onLangChange={() => setLang(lang === "pt" ? "en" : "pt")}
+        navItems={NAV_ITEMS[lang]}
+        navLinks={NAV_LINKS}
+      />
 
       <section
         id="top"
@@ -683,139 +476,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="footer-section">
-        <div className="footer-stage">
-          <motion.div
-            className="footer-contours"
-            animate={{
-              x: ["0%", "-3%", "0%"],
-              y: ["0%", "2%", "0%"],
-              scale: [1, 1.04, 1],
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="footer-topbar"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="footer-wordmark">
-              <span>PILOT</span>
-              <strong>DRIVER</strong>
-            </div>
-            <a href="#contact" className="footer-store">
-              <Zap size={14} /> STORE
-            </a>
-            <a href="#top" className="footer-menu">
-              <Menu size={17} />
-            </a>
-          </motion.div>
-          <motion.div
-            className="footer-hero-copy"
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="signature-mark">{"///"}</div>
-            <h2>
-              NUNCA
-              <br />
-              <span>DESISTIR</span>
-            </h2>
-          </motion.div>
-          <motion.div
-            className="footer-racer"
-            initial={{ opacity: 0, y: 100, scale: 0.93 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.15 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <img
-              src="/Imagens/CleevStudio_CKB_JUL26-0668.jpg"
-              alt="Danilo Vicentin pilotando seu kart azul"
-            />
-          </motion.div>
-          <motion.nav
-            className="footer-pages"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={{
-              hidden: {},
-              show: { transition: { staggerChildren: 0.08 } },
-            }}
-          >
-            <small>PAGES</small>
-            {["HOME", "ON TRACK", "OFF TRACK", "CALENDAR"].map(
-              (item, index) => (
-                <motion.a
-                  key={item}
-                  href={["#top", "/on-track", "#gallery", "#partners"][index]}
-                  variants={{
-                    hidden: { opacity: 0, x: -25 },
-                    show: { opacity: 1, x: 0 },
-                  }}
-                >
-                  {item}
-                </motion.a>
-              ),
-            )}
-            <motion.a
-              href="#contact"
-              className="footer-highlight"
-              variants={{
-                hidden: { opacity: 0, x: -25 },
-                show: { opacity: 1, x: 0 },
-              }}
-            >
-              CONTACT
-            </motion.a>
-          </motion.nav>
-          <motion.nav
-            className="footer-socials"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={{
-              hidden: {},
-              show: {
-                transition: { staggerChildren: 0.08, delayChildren: 0.18 },
-              },
-            }}
-          >
-            <small>FOLLOW ON</small>
-            {[
-              { name: "INSTAGRAM", href: "https://www.instagram.com/danilo_vicentin_silva/" },
-              { name: "YOUTUBE", href: "https://www.youtube.com/@danilovicentin" },
-              { name: "TIKTOK", href: "https://www.tiktok.com/@danilovicentindasilva" },
-              { name: "LINKEDIN", href: "https://www.linkedin.com" },
-            ].map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                variants={{
-                  hidden: { opacity: 0, x: 25 },
-                  show: { opacity: 1, x: 0 },
-                }}
-              >
-                {item.name}
-              </motion.a>
-            ))}
-          </motion.nav>
-          <div className="footer-base">
-            <span>© 2024 DRIVER PORTFOLIO. ALL RIGHTS RESERVED</span>
-            <span>
-              <a href="#top">PRIVACY POLICY</a>
-              <a href="#top">TERMS</a>
-            </span>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }
