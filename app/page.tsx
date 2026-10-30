@@ -17,6 +17,7 @@ import {
   MoveRight,
   Play,
   X,
+  Youtube,
   Zap,
 } from "lucide-react"
 
@@ -99,6 +100,7 @@ const copy = {
       "A jornada",
       "Galeria",
       "On-Track",
+      "Sobre mim",
       "Redes sociais",
       "Parcerias",
       "Contato",
@@ -108,8 +110,8 @@ const copy = {
     heroTagline: "NASCIDO PARA ACELERAR",
     heroBody:
       "Da primeira curva ao próximo grid. Uma jornada de velocidade, foco e ambição sem limites.",
-    cta: "Conheça a jornada",
-    reel: "Assistir ao reel",
+    cta: "Assistir a apresentação",
+    reel: "Conheça a jornada",
     journeyEyebrow: "01 / A jornada",
     journeyTitle: "Toda grande\nlinha de chegada\ncomeça aqui.",
     journeyBody:
@@ -133,6 +135,7 @@ const copy = {
       "The journey",
       "Gallery",
       "On-Track",
+      "About me",
       "Social media",
       "Partners",
       "Contact",
@@ -142,8 +145,8 @@ const copy = {
     heroTagline: "BORN TO PUSH",
     heroBody:
       "From the first corner to the next grid. A journey of speed, focus and limitless ambition.",
-    cta: "Discover the journey",
-    reel: "Watch the reel",
+    cta: "Watch the apresentation",
+    reel: "Know the journey",
     journeyEyebrow: "01 / The journey",
     journeyTitle: "Every great\nfinish line\nstarts here.",
     journeyBody:
@@ -255,6 +258,7 @@ export default function Home() {
                   "#journey",
                   "#gallery",
                   "/on-track",
+                  "/about",
                   "#socials",
                   "#partners",
                   "#contact",
@@ -299,6 +303,7 @@ export default function Home() {
                     "#journey",
                     "#gallery",
                     "/on-track",
+                    "/about",
                     "#socials",
                     "#partners",
                     "#contact",
@@ -445,7 +450,7 @@ export default function Home() {
             </h2>
             <p className="body-copy mt-9 max-w-md">{activeCopy.journeyBody}</p>
             <a
-              href="#gallery"
+              href="/about"
               className="underlined-link mt-10 inline-flex items-center gap-4"
             >
               {activeCopy.read} <MoveRight size={18} />
@@ -668,6 +673,9 @@ export default function Home() {
                 <Instagram size={17} /> INSTAGRAM
               </MagneticButton>
               <MagneticButton className="button-outline">
+                <Youtube size={17} /> YOUTUBE
+              </MagneticButton>
+              <MagneticButton className="button-outline">
                 <Zap size={17} /> WHATSAPP
               </MagneticButton>
             </div>
@@ -779,16 +787,23 @@ export default function Home() {
             }}
           >
             <small>FOLLOW ON</small>
-            {["INSTAGRAM", "YOUTUBE", "TIKTOK", "LINKEDIN"].map((item) => (
+            {[
+              { name: "INSTAGRAM", href: "https://www.instagram.com/danilo_vicentin_silva/" },
+              { name: "YOUTUBE", href: "https://www.youtube.com/@danilovicentin" },
+              { name: "TIKTOK", href: "https://www.tiktok.com/@danilovicentindasilva" },
+              { name: "LINKEDIN", href: "https://www.linkedin.com" },
+            ].map((item) => (
               <motion.a
-                key={item}
-                href="#contact"
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
                 variants={{
                   hidden: { opacity: 0, x: 25 },
                   show: { opacity: 1, x: 0 },
                 }}
               >
-                {item}
+                {item.name}
               </motion.a>
             ))}
           </motion.nav>

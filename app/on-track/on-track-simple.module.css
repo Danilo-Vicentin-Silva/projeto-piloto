@@ -112,6 +112,112 @@
   padding: 84px 0 100px;
 }
 
+.statusCard {
+  margin-bottom: 24px;
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  padding: clamp(28px, 5vw, 48px);
+  background: linear-gradient(135deg, #06102d 0%, #0047ab 100%);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+  animation: statusPulse 3s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 40px rgba(255, 215, 0, 0.4);
+  }
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  background: rgba(255, 215, 0, 0.2);
+  border: 1px solid #ffd700;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: #ffd700;
+  border-radius: 50%;
+  animation: dotBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes dotBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.statusTitle {
+  margin: 0 0 12px;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.statusDescription {
+  margin: 0 0 20px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.statusProgress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.progressBar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(90deg, #ffd700, #0047ab);
+  border-radius: 3px;
+  animation: progressShimmer 2s ease-in-out infinite;
+}
+
+@keyframes progressShimmer {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.progressText {
+  flex: 0 0 auto;
+  color: #ffd700;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .sectionHeading {
   margin-bottom: 28px;
 }
@@ -251,6 +357,16 @@
 
   .resultSection {
     padding: 64px 0 72px;
+  }
+
+  .statusCard {
+    padding: 24px;
+  }
+
+  .statusProgress {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
   }
 
   .resultCard {

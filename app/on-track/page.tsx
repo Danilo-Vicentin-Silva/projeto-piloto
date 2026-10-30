@@ -18,6 +18,7 @@ export default function OnTrackPage() {
         <nav className={styles.desktopNav} aria-label="Navegação principal">
           <Link href="/#journey">A jornada</Link>
           <Link href="/on-track" aria-current="page">On Track</Link>
+          <Link href="/about">Sobre mim</Link>
           <Link href="/#gallery">Galeria</Link>
           <Link href="/#socials">Redes</Link>
         </nav>
@@ -36,6 +37,7 @@ export default function OnTrackPage() {
           <nav className={styles.mobileNav} aria-label="Navegação mobile">
             <Link onClick={() => setMenuOpen(false)} href="/#journey">A jornada</Link>
             <Link onClick={() => setMenuOpen(false)} href="/on-track">On Track</Link>
+            <Link onClick={() => setMenuOpen(false)} href="/about">Sobre mim</Link>
             <Link onClick={() => setMenuOpen(false)} href="/#gallery">Galeria</Link>
             <Link onClick={() => setMenuOpen(false)} href="/#socials">Redes</Link>
           </nav>
@@ -60,6 +62,23 @@ export default function OnTrackPage() {
           <p className={styles.eyebrow}>MINHA PARTICIPAÇÃO</p>
           <h2 id="result-title">Meu resultado</h2>
         </div>
+
+        <article className={styles.statusCard}>
+          <div className={styles.statusBadge}>
+            <span className={styles.statusDot}></span>
+            <span>EM BREVE</span>
+          </div>
+          <h3 className={styles.statusTitle}>PRÓXIMA TEMPORADA</h3>
+          <p className={styles.statusDescription}>
+            Campeonato anterior concluído. Preparando para o próximo desafio nas pistas.
+          </p>
+          <div className={styles.statusProgress}>
+            <div className={styles.progressBar}>
+              <div className={styles.progressFill}></div>
+            </div>
+            <span className={styles.progressText}>Preparação em andamento</span>
+          </div>
+        </article>
 
         <article className={styles.resultCard}>
           <div className={styles.resultChampionship}>
