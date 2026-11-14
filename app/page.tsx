@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import {
   motion,
   useScroll,
@@ -38,11 +39,21 @@ const copy = {
     read: "Ler a história completa",
     galleryEyebrow: "02 / Dentro da pista",
     galleryTitle: "Velocidade\nem movimento",
-    socialEyebrow: "03 / Acompanhe de perto",
+    helmetsEyebrow: "03 / Minha identidade",
+    helmetsTitle: "Do primeiro\n ao oficial.",
+    helmetsIntro:
+      "Cada capacete marca uma etapa da jornada — e leva um pouco da minha história para a pista.",
+    firstHelmetTitle: "Meu primeiro capacete",
+    firstHelmetDescription:
+      "O começo de tudo: meu primeiro companheiro de pista e o início de uma identidade nas corridas.",
+    officialHelmetTitle: "Meu capacete oficial",
+    officialHelmetDescription:
+      "Com as cores do Brasil e meu nome em destaque, representa quem sou hoje e tudo o que ainda quero conquistar.",
+    socialEyebrow: "04 / Acompanhe de perto",
     socialTitle: "WHAT’S UP\nNAS REDES",
     socialFollow: "Siga Danilo nas redes sociais",
     socialLinkLabel: "Abrir perfil de",
-    partnersEyebrow: "04 / Parceiros de corrida",
+    partnersEyebrow: "05 / Parceiros de corrida",
     partnersTitle: "Acelere\ncom a minha marca.",
     partnersBody:
       "Marcas que querem sair do grid comigo e construir o próximo capítulo.",
@@ -64,11 +75,21 @@ const copy = {
     read: "Read the full story",
     galleryEyebrow: "02 / Trackside",
     galleryTitle: "Speed\nin motion",
-    socialEyebrow: "03 / Follow the journey",
+    helmetsEyebrow: "03 / My identity",
+    helmetsTitle: "From my first\nto my official.",
+    helmetsIntro:
+      "Each helmet marks a new chapter in my journey — carrying a piece of my story onto the track.",
+    firstHelmetTitle: "My first helmet",
+    firstHelmetDescription:
+      "Where it all began: my first companion on the track and the start of my racing identity.",
+    officialHelmetTitle: "My official helmet",
+    officialHelmetDescription:
+      "With Brazil’s colors and my name on it, it represents who I am today and what I still hope to achieve.",
+    socialEyebrow: "04 / Follow the journey",
     socialTitle: "WHAT’S UP\nON SOCIALS",
     socialFollow: "Follow Danilo on social media",
     socialLinkLabel: "Visit",
-    partnersEyebrow: "04 / Race partners",
+    partnersEyebrow: "05 / Race partners",
     partnersTitle: "Accelerate\nwith my brand.",
     partnersBody:
       "Brands ready to leave the grid with me and build the next chapter.",
@@ -203,7 +224,7 @@ export default function Home() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.2 }}
         >
-          01 <span>/ 05</span>
+          01 <span>/ 06</span>
         </motion.div>
         <motion.a
           href="#journey"
@@ -318,6 +339,109 @@ export default function Home() {
                 </div>
                 <div className="gallery-index">0{index + 1}</div>
               </motion.a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="helmets"
+        className="relative overflow-hidden bg-[#081437] px-6 py-28 md:px-10 md:py-40"
+      >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-32 top-12 h-96 w-96 rounded-full border border-white/10 md:right-[-5rem] md:top-20"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-8 top-36 h-48 w-48 rounded-full bg-[#0047ab]/30 blur-3xl"
+        />
+        <div className="relative mx-auto max-w-7xl">
+          <motion.div
+            className="grid gap-8 md:grid-cols-12 md:items-end"
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.75 }}
+          >
+            <div className="md:col-span-7">
+              <SectionLabel>{activeCopy.helmetsEyebrow}</SectionLabel>
+              <h2 className="display-title mt-7">
+                {activeCopy.helmetsTitle.split("\n").map((line) => (
+                  <span key={line}>{line.trim()}</span>
+                ))}
+              </h2>
+            </div>
+            <p className="body-copy max-w-md md:col-span-4 md:col-start-9">
+              {activeCopy.helmetsIntro}
+            </p>
+          </motion.div>
+
+          <div className="mt-14 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8">
+            {[
+              {
+                title: activeCopy.firstHelmetTitle,
+                description: activeCopy.firstHelmetDescription,
+                image: "/Imagens/meu%20primeiro%20capacete.jpg",
+                alt: activeCopy.firstHelmetTitle,
+                number: "01",
+                badge: lang === "pt" ? "O começo" : "The beginning",
+              },
+              {
+                title: activeCopy.officialHelmetTitle,
+                description: activeCopy.officialHelmetDescription,
+                image: "/Imagens/meu%20capacete%20oficial.jpg",
+                alt: activeCopy.officialHelmetTitle,
+                number: "02",
+                badge: lang === "pt" ? "Atual" : "Current",
+              },
+            ].map((helmet, index) => (
+              <motion.article
+                key={helmet.number}
+                className="group relative overflow-hidden border border-white/10 bg-white/[0.035] p-4 md:p-6"
+                initial={{ opacity: 0, y: 55 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -8 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.7, delay: index * 0.12 }}
+              >
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="text-[10px] font-black tracking-[0.2em] text-[#ffd700]">
+                    {lang === "pt" ? "CAPACETE" : "HELMET"} / {helmet.number}
+                  </span>
+                  <span className="border border-[#32cd32]/40 px-3 py-1 text-[9px] font-black uppercase tracking-[0.16em] text-[#32cd32]">
+                    {helmet.badge}
+                  </span>
+                </div>
+                <div className="relative flex aspect-[0.82] items-center justify-center overflow-hidden bg-[#050b1e] md:aspect-[0.9]">
+                  <div
+                    aria-hidden="true"
+                    className="absolute h-[72%] w-[72%] rounded-full border border-[#0047ab]/40 transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <Image
+                    src={helmet.image}
+                    alt={helmet.alt}
+                    loading="lazy"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="relative z-10 h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                  <span className="absolute bottom-3 right-4 z-20 text-5xl font-black italic leading-none text-white/10 md:text-7xl">
+                    {helmet.number}
+                  </span>
+                </div>
+                <div className="flex items-start justify-between gap-6 px-1 pb-2 pt-6">
+                  <div>
+                    <h3 className="text-2xl font-black italic uppercase tracking-[-0.06em] md:text-3xl">
+                      {helmet.title}
+                    </h3>
+                    <p className="body-copy mt-3 max-w-lg text-sm">
+                      {helmet.description}
+                    </p>
+                  </div>
+                  <span className="mt-1 hidden h-2 w-2 shrink-0 bg-[#32cd32] shadow-[0_0_14px_#32cd32] sm:block" />
+                </div>
+              </motion.article>
             ))}
           </div>
         </div>
