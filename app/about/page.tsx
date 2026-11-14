@@ -199,7 +199,7 @@ export default function About() {
           >
             <div className="about-photo">
               <img
-                src="/Imagens/CleevStudio_CKB_JUL26-0668.jpg"
+                src="/Imagens/CleevStudio_CKB_JUL26-0668.webp"
                 alt="Danilo Vicentin piloto de karting"
               />
             </div>
@@ -329,8 +329,10 @@ export default function About() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
             <img
-              src="/Imagens/CleevStudio_CKB_JUL26-0668.jpg"
+              src="/Imagens/CleevStudio_CKB_JUL26-0668.webp"
               alt="Danilo Vicentin pilotando seu kart azul"
+              loading="lazy"
+              decoding="async"
             />
           </motion.div>
           <motion.nav

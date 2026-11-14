@@ -52,7 +52,7 @@ export default function OnTrackPage() {
         </div>
         <img
           className={styles.heroImage}
-          src="/Imagens/CKB3-AMIKA-M-759.jpg"
+          src="/Imagens/CKB3-AMIKA-M-759.webp"
           alt="Kart na pista durante uma etapa"
         />
       </section>

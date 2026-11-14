@@ -159,8 +159,10 @@ export default function Home() {
           style={{ y: heroY, opacity: heroOpacity }}
         >
           <motion.img
-            src="/Imagens/CleevStudio_CKB_JUL26-0668.jpg"
+            src="/Imagens/CleevStudio_CKB_JUL26-0668.webp"
             alt="Danilo Vicentin pilotando seu kart azul"
+            loading="eager"
+            decoding="async"
             animate={{ scale: [1.05, 1.1, 1.05] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -280,8 +282,10 @@ export default function Home() {
           >
             <div className="journey-photo">
               <img
-                src="/Imagens/CLEEVSTUDIO-21JUL26-CKB-533.jpg"
+                src="/Imagens/CLEEVSTUDIO-21JUL26-CKB-533.webp"
                 alt="Danilo Vicentin pilotando seu kart na pista"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="number-card">
@@ -331,7 +335,12 @@ export default function Home() {
                 viewport={{ once: false, amount: 0.18 }}
                 transition={{ duration: 0.7, delay: index * 0.12 }}
               >
-                <img src={photo.src} alt={photo.label} />
+                <img
+                  src={photo.src}
+                  alt={photo.label}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="gallery-overlay">
                   <span>{photo.category}</span>
                   <strong>{photo.label}</strong>
@@ -382,7 +391,7 @@ export default function Home() {
               {
                 title: activeCopy.firstHelmetTitle,
                 description: activeCopy.firstHelmetDescription,
-                image: "/Imagens/meu%20primeiro%20capacete.jpg",
+                image: "/Imagens/meu%20primeiro%20capacete.webp",
                 alt: activeCopy.firstHelmetTitle,
                 number: "01",
                 badge: lang === "pt" ? "O começo" : "The beginning",
@@ -390,7 +399,7 @@ export default function Home() {
               {
                 title: activeCopy.officialHelmetTitle,
                 description: activeCopy.officialHelmetDescription,
-                image: "/Imagens/meu%20capacete%20oficial.jpg",
+                image: "/Imagens/meu%20capacete%20oficial.webp",
                 alt: activeCopy.officialHelmetTitle,
                 number: "02",
                 badge: lang === "pt" ? "Atual" : "Current",

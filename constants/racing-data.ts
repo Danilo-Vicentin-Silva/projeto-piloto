@@ -31,21 +31,21 @@ export const RESULTS = [
 
 export const PHOTO_MOMENTS = [
   {
-    src: '/Imagens/CKB3-AMIKA-M-621.jpg',
+    src: '/Imagens/CKB3-AMIKA-M-621.webp',
     alt: 'Karts disputando uma etapa no kartódromo',
     location: 'VELOPARK / BRASIL',
     year: '2026',
     className: 'photoTall',
   },
   {
-    src: '/Imagens/CKB3-AMIKA-M-622.jpg',
+    src: '/Imagens/CKB3-AMIKA-M-622.webp',
     alt: 'Danilo Vicentin acompanhando uma etapa no kartódromo',
     location: 'CASCAVEL / BRASIL',
     year: '2025',
     className: 'photoShort',
   },
   {
-    src: '/Imagens/CKB3-AMIKA-M-759.jpg',
+    src: '/Imagens/CKB3-AMIKA-M-759.webp',
     alt: 'Kart na pista durante uma etapa de corrida',
     location: 'SERRA / BRASIL',
     year: '2024',
