@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
@@ -16,11 +16,12 @@ export function Header({ currentPath = "/", lang, onLangChange, navItems, navLin
   const [menuOpen, setMenuOpen] = useState(false)
   const [hasScrolled, setHasScrolled] = useState(false)
 
-  useState(() => {
+  useEffect(() => {
     const onScroll = () => setHasScrolled(window.scrollY > 40)
+    onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
-  })
+  }, [])
 
   return (
     <header className={`site-header ${hasScrolled ? "is-scrolled" : ""}`}>
