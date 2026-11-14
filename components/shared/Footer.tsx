@@ -9,9 +9,9 @@ interface FooterProps {
 
 const socialLinks = [
   { name: "INSTAGRAM", href: "https://www.instagram.com/danilo_vicentin_silva/" },
-  { name: "YOUTUBE", href: "https://www.youtube.com/@danilovicentin" },
+  { name: "YOUTUBE", href: "https://www.youtube.com/@DRVICENTIN" },
   { name: "TIKTOK", href: "https://www.tiktok.com/@danilovicentindasilva" },
-  { name: "LINKEDIN", href: "https://www.linkedin.com" },
+  { name: "EMAIL", href: "mailto:danilovicentindasilva@gmail.com" },
 ]
 
 const pageLinks = [
@@ -131,8 +131,8 @@ export function Footer({ basePath = "" }: FooterProps) {
             <motion.a
               key={item.name}
               href={item.href}
-              target="_blank"
-              rel="noreferrer"
+              target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={item.href.startsWith("mailto:") ? undefined : "noreferrer"}
               variants={{
                 hidden: { opacity: 0, x: 25 },
                 show: { opacity: 1, x: 0 },

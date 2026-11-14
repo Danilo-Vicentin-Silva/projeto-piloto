@@ -31,9 +31,9 @@ export const NAV_LINKS = [
 
 export const SOCIAL_LINKS = [
   { name: "INSTAGRAM", href: "https://www.instagram.com/danilo_vicentin_silva/" },
-  { name: "YOUTUBE", href: "https://www.youtube.com/@danilovicentin" },
+  { name: "YOUTUBE", href: "https://www.youtube.com/@DRVICENTIN" },
   { name: "TIKTOK", href: "https://www.tiktok.com/@danilovicentindasilva" },
-  { name: "LINKEDIN", href: "https://www.linkedin.com" },
+  { name: "EMAIL", href: "mailto:danilovicentindasilva@gmail.com" },
 ] as const
 
 export const ANIMATION_CONFIG = {

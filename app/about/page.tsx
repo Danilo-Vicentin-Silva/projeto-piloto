@@ -28,8 +28,12 @@ const copy = {
     eyebrow: "Piloto de karting • Brasil",
     title: "SOBRE\nMIM",
     subtitle: "DANILO VICENTIN",
-    aboutText:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+    aboutText: [
+      "Sou Danilo Vicentin da Silva (se o site ainda não deixou isso claro). Gosto muito de correr de kart. Desde pequeno, assisto a corridas de Fórmula 1, 2 e 3, além de provas com hipercarros, supercarros, protótipos e GT: tudo o que envolve velocidade, um espelho da minha mente, sempre em movimento.",
+      "Foi na adolescência que descobri que podia sentir tudo isso na pele (mesmo que não tão rápido, óbvio): conheci o kart rental. Daí para a frente, foi só para trás — porque isso se tornou muito mais do que um hobby. Virou o objetivo de, talvez um dia, fazer disso uma profissão; um esporte em que eu pudesse disputar com os melhores e, quem sabe, me tornar um deles.",
+      "Só em 2026 bati o martelo de vez: criei minha identidade visual como piloto, participei do meu primeiro campeonato de kart rental no Kartódromo de Nova Odessa e entrei para um grupo de treinos de kart com o grande Rodrigo Vieira, kartista e piloto de alto nível não só no kart, mas também em carros de verdade, em pistas maiores e campeonatos ainda maiores.",
+      "Tudo isso não só me deixou mais preparado, como também me deu uma rota, um objetivo. Finalmente, eu sabia o que precisava fazer para me tornar aquilo que, secretamente, sempre sonhei em ser: um piloto de corrida. Mas ainda há muitas voltas até eu cruzar essa linha de chegada.",
+    ],
     followText: "Siga nas redes sociais",
     footer: "A próxima volta começa agora.",
   },
@@ -46,8 +50,12 @@ const copy = {
     eyebrow: "Karting driver • Brazil",
     title: "ABOUT\nME",
     subtitle: "DANILO VICENTIN",
-    aboutText:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+    aboutText: [
+      "I'm Danilo Vicentin da Silva (in case this site hasn't made that clear yet). I love karting. Ever since I was a kid, I've watched Formula 1, 2, and 3 races, as well as races featuring hypercars, supercars, prototypes, and GT cars—anything involving speed, a reflection of my mind, always in motion.",
+      "It was during my teenage years that I discovered I could experience all of that firsthand (even if not quite as fast, obviously): I found rental karting. From then on, there was no turning back, because it became much more than a hobby. It became a goal: maybe one day, I could turn it into a profession—a sport where I could compete against the best and, one day, become one of them.",
+      "It wasn't until 2026 that I finally made up my mind: I created my visual identity as a driver, competed in my first rental karting championship at the Nova Odessa Kart Track, and joined a kart training group with the great Rodrigo Vieira, a top-level karter and racing driver—not only in karting, but also in real cars, on bigger tracks, and in bigger championships.",
+      "All of this not only made me better prepared, but also gave me a path and a goal. At last, I knew what I needed to do to become what I'd secretly always dreamed of being: a racing driver. But there are still many laps to go before I reach that finish line.",
+    ],
     followText: "Follow on social media",
     footer: "The next lap starts now.",
   },
@@ -199,7 +207,7 @@ export default function About() {
           >
             <div className="about-photo">
               <img
-                src="/Imagens/CleevStudio_CKB_JUL26-0668.webp"
+                src="/Imagens/CKB3-AMIKA-M-621.webp"
                 alt="Danilo Vicentin piloto de karting"
               />
             </div>
@@ -227,7 +235,11 @@ export default function About() {
             viewport={{ once: false, amount: 0.4 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="about-text">{activeCopy.aboutText}</p>
+            {activeCopy.aboutText.map((paragraph) => (
+              <p className="about-text" key={paragraph}>
+                {paragraph}
+              </p>
+            ))}
           </motion.div>
 
           <motion.div
@@ -249,7 +261,7 @@ export default function About() {
                 <Instagram size={24} />
               </a>
               <a
-                href="https://www.youtube.com/@danilovicentin"
+                href="https://www.youtube.com/@DRVICENTIN"
                 target="_blank"
                 rel="noreferrer"
                 className="social-icon"
@@ -267,7 +279,7 @@ export default function About() {
                 <Zap size={24} />
               </a>
               <a
-                href="mailto:contato@danilovicentin.com"
+                href="mailto:danilovicentindasilva@gmail.com"
                 className="social-icon"
                 aria-label="Email"
               >
@@ -329,7 +341,7 @@ export default function About() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
             <img
-              src="/Imagens/CleevStudio_CKB_JUL26-0668.webp"
+              src="/Imagens/CKB3-AMIKA-M-622.webp"
               alt="Danilo Vicentin pilotando seu kart azul"
               loading="lazy"
               decoding="async"
@@ -386,15 +398,15 @@ export default function About() {
             <small>FOLLOW ON</small>
             {[
               { name: "INSTAGRAM", href: "https://www.instagram.com/danilo_vicentin_silva/" },
-              { name: "YOUTUBE", href: "https://www.youtube.com/@danilovicentin" },
+              { name: "YOUTUBE", href: "https://www.youtube.com/@DRVICENTIN" },
               { name: "TIKTOK", href: "https://www.tiktok.com/@danilovicentindasilva" },
-              { name: "LINKEDIN", href: "https://www.linkedin.com" },
+              { name: "EMAIL", href: "mailto:danilovicentindasilva@gmail.com" },
             ].map((item) => (
               <motion.a
                 key={item.name}
                 href={item.href}
-                target="_blank"
-                rel="noreferrer"
+                target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={item.href.startsWith("mailto:") ? undefined : "noreferrer"}
                 variants={{
                   hidden: { opacity: 0, x: 25 },
                   show: { opacity: 1, x: 0 },

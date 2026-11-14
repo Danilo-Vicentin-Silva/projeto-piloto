@@ -346,7 +346,9 @@ export default function Home() {
                   <strong>{photo.label}</strong>
                   <ArrowUpRight size={24} />
                 </div>
-                <div className="gallery-index">0{index + 1}</div>
+                <div className="gallery-index">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
               </motion.a>
             ))}
           </div>
@@ -592,17 +594,17 @@ export default function Home() {
           <div id="contact" className="contact-row mt-24">
             <span>{activeCopy.contact}</span>
             <div className="flex flex-wrap gap-4">
-              <MagneticButton className="button-lime">
+              <MagneticButton className="button-lime" href="mailto:danilovicentindasilva@gmail.com">
                 <Mail size={17} /> EMAIL
               </MagneticButton>
-              <MagneticButton className="button-outline">
+              <MagneticButton className="button-outline" href="https://www.instagram.com/danilo_vicentin_silva/">
                 <Instagram size={17} /> INSTAGRAM
               </MagneticButton>
-              <MagneticButton className="button-outline">
+              <MagneticButton className="button-outline" href="https://www.youtube.com/@DRVICENTIN">
                 <Youtube size={17} /> YOUTUBE
               </MagneticButton>
-              <MagneticButton className="button-outline">
-                <Zap size={17} /> WHATSAPP
+              <MagneticButton className="button-outline" href="https://www.tiktok.com/@danilovicentindasilva">
+                <Zap size={17} /> TIKTOK
               </MagneticButton>
             </div>
           </div>
