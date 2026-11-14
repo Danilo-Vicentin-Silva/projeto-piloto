@@ -290,7 +290,7 @@ export default function Home() {
             </div>
             <div className="number-card">
               <span>KART</span>
-              <img className="number-card-logo" src="/Marca/logo.png" alt="Logo de Danilo Vicentin" />
+              <img className="number-card-logo" src="/Marca/logo.webp" alt="Logo de Danilo Vicentin" />
               <i>THE STARTING LINE</i>
             </div>
             <div className="photo-caption">

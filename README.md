@@ -1,6 +1,6 @@
 # 🏎️ Danilo Vicentin - Racing Portfolio
 
-![Portfolio Screenshot](public/Imagens/print-site.png)
+![Portfolio Screenshot](public/Imagens/print-site.webp)
 
 <div align="center">
 

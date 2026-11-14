@@ -26,7 +26,7 @@ export function Header({ currentPath = "/", lang, onLangChange, navItems, navLin
   return (
     <header className={`site-header ${hasScrolled ? "is-scrolled" : ""}`}>
       <Link href="/" className="brand-mark" aria-label="Danilo Vicentin — página inicial">
-        <img src="/Marca/logo.png" alt="" />
+        <img src="/Marca/logo.webp" alt="" />
       </Link>
       <nav className="hidden items-center gap-4 lg:flex lg:gap-5 xl:gap-8">
         {navItems.map((item, index) => (

@@ -12,7 +12,7 @@ export default function OnTrackPage() {
     <main className={styles.page}>
       <header className={styles.header}>
         <Link href="/" className={styles.brand} aria-label="Danilo Vicentin — página inicial">
-          <img src="/Marca/logo.png" alt="" />
+          <img src="/Marca/logo.webp" alt="" />
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Navegação principal">

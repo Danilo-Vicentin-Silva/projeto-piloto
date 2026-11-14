@@ -90,7 +90,7 @@ export default function About() {
         className={`site-header ${hasScrolled ? "is-scrolled" : ""}`}
       >
         <a href="/" className="brand-mark" aria-label="Danilo Vicentin — página inicial">
-          <img src="/Marca/logo.png" alt="" />
+          <img src="/Marca/logo.webp" alt="" />
         </a>
         <nav className="hidden items-center gap-4 lg:flex lg:gap-5 xl:gap-8">
           {activeCopy.nav.map((item, index) => (
